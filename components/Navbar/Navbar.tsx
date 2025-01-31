@@ -19,13 +19,13 @@ const Navbar = ({}: Props) => {
   return (
     <section>
       {/* Top Newsletter Bar */}
-      <p className='flex items-center justify-center text-[12px] md:text-[18px] text-[#98989A] px-[24px] py-[12px] mt-[40px] md"mt-0'>
+      <p className='flex items-center justify-center text-[12px] md:text-[18px] text-[#98989A] px-[24px] py-[12px] mt-[20px] lg:mt-[40px] md"mt-0'>
         Subscribe to our Newsletter For New & latest Blogs and Resources{' '}
         <GoArrowUpRight color='#FFD11A' />
       </p>
 
       {/* Navbar */}
-      <div className='flex items-center justify-between px-[16px] md:px-[80px] py-[20px] bg-[#1A1A1A] border-[#7E7E81]'>
+      <div className='flex items-center justify-between px-[20px] lg:px-[80px] py-[20px] bg-[#1A1A1A] border-[#7E7E81]'>
         {/* Logo */}
         <div className='flex items-center gap-2'>
           <Image src={Logo} alt='logo' />

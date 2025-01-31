@@ -7,7 +7,7 @@ body {
 }
 * {
   box-sizing: border-box;
-  border-color: #262626;
+  border-color: #262626 !important;
   letter-spacing: -3%;
 }
 
@@ -51,4 +51,18 @@ body {
 
 .grid_cols_2 {
   grid-template-columns: 3fr 2fr;
+}
+.grid_cols_2_big {
+  grid-template-columns: 3fr 5fr;
+}
+
+@media screen and (max-width: 768px) {
+  .grid_cols_2 {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .grid_cols_2_big {
+    grid-template-columns: 1fr;
+  }
 }
