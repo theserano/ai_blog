@@ -6,6 +6,7 @@ import FTBlog from '../../public/assets/ft_blog.svg'
 import RIBlog from '../../public/assets/ri_blog.svg'
 import CustomText from '@/components/utilities/CustomText'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import SectionHeader from '@/components/utilities/SectionHeader'
 
 type Props = {}
 
@@ -55,15 +56,12 @@ const researchCardDetails: cardDetails[] = [
 const Features = ({}: Props) => {
   return (
     <section>
-      <div className='bg-[#1A1A1A] flex flex-col gap-4 px-[20px] xl:px-[80px] 2xl:px-[162px] py-[50px] xl:py-[80px] 2xl:py-[120px]'>
-        <Badge
-          className='w-fit text-[14px] xl:text-[16px] 2xl:text-[20px]'
-          variant={`secondary`}
-        >
-          Unlock the Power of
-        </Badge>
-        <CustomHeader type='h1'>FutureTech Features</CustomHeader>
-      </div>
+      <SectionHeader
+        badgeText='Unlock the Power of'
+        headerText='FutureTech Features'
+        buttonText='Explore'
+        showButton
+      />
 
       <div className='grid grid_cols_2_big'>
         <div className='pl-[20px] xl:pl-[80px] 2xl:pl-[162px] pr-[20px] xl:pr-[80px] py-[50px] flex justify-start xl:justify-center items-center border-t-[1px] xl:border-b-[1px] border-l-[1px] border-r-[1px]'>

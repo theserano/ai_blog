@@ -7,9 +7,8 @@ import latest from '../../public/assets/latest-news.svg'
 import expert from '../../public/assets/expert-contributions.svg'
 import global from '../../public/assets/global-read.svg'
 import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import { GoArrowUpRight } from 'react-icons/go'
 import CustomHeader from '@/components/utilities/CustomHeader'
+import ArrowBtn from '@/components/utilities/ArrowBtn'
 
 const HomeHero = () => {
   return (
@@ -81,12 +80,7 @@ const HomeHero = () => {
             <p className='text-[#7E7E81] text-[14px] xl:text-[16px] 2xl:text-[18px] leading-[150%]'>
               Over 1,000 articles on emerging tech trends and breakthroughs.
             </p>
-            <Button
-              variant={`outline`}
-              className='rounded-[6px] w-full md:w-fit transition-all duration-300 px-[24px] py-[18px]'
-            >
-              Explore Resources <GoArrowUpRight color='#FFD11A' />
-            </Button>
+            <ArrowBtn buttonText='Explore Resource' className='!bg-transparent' />
           </article>
         </div>
       </div>

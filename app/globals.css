@@ -52,12 +52,15 @@ body {
 .grid_cols_2 {
   grid-template-columns: 3fr 2fr;
 }
+.grid_cols_2_bCard {
+  grid-template-columns: 2fr 4fr;
+}
 .grid_cols_2_big {
   grid-template-columns: 3fr 5fr;
 }
 
 @media screen and (max-width: 768px) {
-  .grid_cols_2 {
+  .grid_cols_2, .grid_cols_2_bCard {
     grid-template-columns: 1fr;
   }
 }
