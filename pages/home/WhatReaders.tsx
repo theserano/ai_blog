@@ -57,7 +57,7 @@ const WhatReaders = ({}: Props) => {
       />
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6'>
         {testimonials.map((testimonial, index) => (
-          <Card key={index} className='bg-[#121212] border border-[#333] p-6'>
+          <Card key={index} className='bg-[#121212] border p-6'>
             <CardContent className='flex flex-col items-center text-center gap-4'>
               {/* Avatar */}
               <Avatar className='w-16 h-16'>

@@ -143,7 +143,7 @@ const YourGateway = ({}: Props) => {
                   <CustomText className='whitespace-nowrap'>
                     Download formats
                   </CustomText>
-                  <CustomHeader className='whitespace-nowrap' type='h4'>PDF format for access.</CustomHeader>
+                  <CustomHeader type='h4'>PDF format for access.</CustomHeader>
                 </div>
                 <CustomButton
                   buttonText='Preview'
