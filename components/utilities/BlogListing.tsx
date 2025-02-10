@@ -51,7 +51,7 @@ const BlogCard = ({
       key={id}
       className='grid grid_cols_2_bCard gap-4 md:gap-8 justify-between items-start px-[20px] xl:px-[80px] 2xl:px-[162px] py-[20px] lg:py-[50px] border-b-[1px] border-x-[1px]'
     >
-      <div className='flex flex-row gap-4'>
+      <div className='flex flex-row justify-between items-center gap-4'>
         <div className='flex flex-row gap-4 items-center'>
           <div className='relative w-[80px] h-[80px] rounded-[50%] overflow-hidden'>
             <Image
@@ -69,6 +69,7 @@ const BlogCard = ({
             </p>
           </div>
         </div>
+        <ArrowBtn buttonText='View Blogs' className='flex lg:hidden w-fit' />
       </div>
       <div className='flex gap-[50px] justify-between items-center'>
         <div className='flex flex-col gap-2 items-start'>
@@ -120,7 +121,7 @@ const BlogCard = ({
             </Button>
           </div>
         </div>
-        <ArrowBtn buttonText='View Blogs' />
+        <ArrowBtn buttonText='View Blogs' className='w-fit hidden lg:flex' />
       </div>
     </article>
   )
@@ -153,8 +154,8 @@ const BlogListing = ({ data }: Props) => {
         )
       })
     } else {
-      let newData = data.find(item => item.category === selectedCategory)
-      return newData?.items.map(value => {
+      let newData = data.find((item) => item.category === selectedCategory)
+      return newData?.items.map((value) => {
         return (
           <div key={Math.random()}>
             <BlogCard
@@ -192,7 +193,7 @@ const BlogListing = ({ data }: Props) => {
           </Button>
         ))}
       </div>
-      <div className='flex flex-col max-h-[900px] overflow-y-scroll'>
+      <div className='flex flex-col max-h-[400px] md:max-h-[850px] overflow-y-scroll'>
         {renderData(data)}
       </div>
     </section>
