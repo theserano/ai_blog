@@ -21,6 +21,7 @@ const YourGateway = ({}: Props) => {
         badgeText='Your Gateway to In-Depth Information'
         buttonText='View All Resources'
         headerText={`Unlock Valuable Knowledge with FutureTech's Resources`}
+        showButton
       />
       <div>
         <article className='grid grid_cols_2_big'>
