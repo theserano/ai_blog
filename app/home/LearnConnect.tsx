@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import React from 'react'
-import BigLogo from '../../public/assets/big_logo.svg'
+import BigLogo from '@/public/assets/big_logo.svg'
 import { Badge } from '@/components/ui/badge'
 import CustomHeader from '@/components/utilities/CustomHeader'
 import CustomText from '@/components/utilities/CustomText'
 import { Card, CardContent } from '@/components/ui/card'
-import arrow from '../../public/assets/arrow-side-btn.svg'
+import arrow from '@/public/assets/arrow-side-btn.svg'
 
 type Props = {}
 

@@ -1,7 +1,7 @@
-import React, { ReactElement } from "react";
+import React, { ReactNode } from "react";
 
 type Props = {
-    children: ReactElement | string;
+    children: ReactNode | string;
     className?: string;
 };
 

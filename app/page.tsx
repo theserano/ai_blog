@@ -1,9 +1,9 @@
-import ExploreFutureTech from '@/pages/home/ExploreFutureTech'
-import Features from '@/pages/home/Features'
-import HomeHero from '@/pages/home/Hero'
-import LearnConnect from '@/pages/home/LearnConnect'
-import WhatReaders from '@/pages/home/WhatReaders'
-import YourGateway from '@/pages/home/YourGateway'
+import ExploreFutureTech from '@/app/home/ExploreFutureTech'
+import Features from '@/app/home/Features'
+import HomeHero from '@/app/home/Hero'
+import LearnConnect from '@/app/home/LearnConnect'
+import WhatReaders from '@/app/home/WhatReaders'
+import YourGateway from '@/app/home/YourGateway'
 
 export default function Home() {
   return (

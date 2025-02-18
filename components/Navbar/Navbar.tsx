@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
 import { GoArrowUpRight } from 'react-icons/go'
@@ -6,20 +7,42 @@ import Logo from '../../public/logo.svg'
 import { Button } from '../ui/button'
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
+import { useRouter, usePathname } from 'next/navigation'
 
 type Props = {}
 
+const navLinks: { name: string; link: string }[] = [
+  {
+    name: 'Home',
+    link: '/',
+  },
+  {
+    name: 'News',
+    link: '/news',
+  },
+  {
+    name: 'Podcasts',
+    link: '',
+  },
+  {
+    name: 'Resources',
+    link: '',
+  },
+]
+
 const Navbar = ({}: Props) => {
+  const router = useRouter()
+  const path = usePathname()
+
   return (
     <section>
       {/* Top Newsletter Bar */}
-      <p className='flex items-center justify-center text-[12px] md:text-[18px] text-[#98989A] px-[24px] py-[12px] mt-[20px] lg:mt-[40px] md"mt-0'>
+      <p className='flex items-center justify-center text-[12px] md:text-[14px] lg:text-[16px] text-[#98989A] px-[24px] py-[12px]'>
         Subscribe to our Newsletter For New & latest Blogs and Resources{' '}
         <GoArrowUpRight color='#FFD11A' />
       </p>
@@ -34,14 +57,17 @@ const Navbar = ({}: Props) => {
 
         {/* Desktop Navigation (Hidden on Small Screens) */}
         <div className='hidden lg:flex items-center gap-8'>
-          {['Home', 'News', 'Podcasts', 'Resources'].map((item) => (
+          {navLinks.map((item, key) => (
             <Button
-              key={item}
+              key={key}
               variant='ghost'
-              className='rounded-[6px] hover:!bg-[#141414] !border-[1px] !border-[#1A1A1A] hover:!border-[#333333] hover:!text-white'
+              className={`rounded-[6px] hover:!bg-[#141414] !border-[1px] !border-[#1A1A1A] hover:!border-[#333333] hover:!text-white ${
+                path === item.link ? '!bg-[#141414] !border-[#333333]' : ''
+              }`}
               style={{ color: '#7E7E81' }}
+              onClick={() => router.push(item.link)}
             >
-              {item}
+              {item.name}
             </Button>
           ))}
         </div>

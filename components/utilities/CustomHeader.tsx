@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 
 type Props = {
   children: ReactElement | string
-  type: 'h1' | 'h3' | 'h4',
+  type: 'h1' | 'h3' | 'h4' | 'h5',
   className?: string;
 }
 
@@ -19,6 +19,8 @@ const CustomHeader = ({ children, type, className }: Props) => {
         </h3>
       ) : type === 'h4' ? (
         <h4 className={`text-[18px] font-semibold md:text-[22px] 2xl:text-[26px] ${className}`}>{children}</h4>
+      ) : type === 'h5' ? (
+        <h4 className={`text-[16px] font-semibold md:text-[18px] 2xl:text-[20px] ${className}`}>{children}</h4>
       ) : null}
     </>
   )
