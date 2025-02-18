@@ -7,7 +7,7 @@ import CustomText from './CustomText'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { BiMessageRounded, BiSend } from 'react-icons/bi'
 
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import ArrowBtn from './ArrowBtn'
 
 interface BlogItemsProps {
