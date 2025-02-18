@@ -7,7 +7,7 @@ import ArrowBtn from './ArrowBtn'
 type Props = {
   badgeText: string
   headerText: string
-  buttonText: string
+  buttonText?: string
   showButton?: boolean
 }
 
@@ -28,7 +28,7 @@ const SectionHeader = ({
         </Badge>
         <CustomHeader type='h1'>{headerText}</CustomHeader>
       </div>
-      {showButton && <ArrowBtn buttonText={buttonText} />}
+      {showButton && <ArrowBtn buttonText={buttonText ? buttonText : ''} />}
     </div>
   )
 }
