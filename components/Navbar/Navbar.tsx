@@ -27,11 +27,11 @@ const navLinks: { name: string; link: string }[] = [
   },
   {
     name: 'Podcasts',
-    link: '',
+    link: '/podcasts',
   },
   {
     name: 'Resources',
-    link: '',
+    link: '/resources',
   },
 ]
 
