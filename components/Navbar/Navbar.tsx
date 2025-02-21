@@ -73,7 +73,10 @@ const Navbar = ({}: Props) => {
         </div>
 
         {/* Contact Button (Hidden on Small Screens) */}
-        <Button className='hidden lg:block text-[#141414] bg-[#FFD11A] rounded-[6px] transition-all duration-300'>
+        <Button
+          onClick={() => router.push('/contact')}
+          className='hidden lg:block text-[#141414] bg-[#FFD11A] rounded-[6px] transition-all duration-300'
+        >
           Contact Us
         </Button>
 
@@ -89,19 +92,26 @@ const Navbar = ({}: Props) => {
 
             {/* Drawer Navigation Links */}
             <div className='flex flex-col gap-4'>
-              {['Home', 'News', 'Podcasts', 'Resources'].map((item) => (
+              {navLinks.map((item, key) => (
                 <Button
-                  key={item}
+                  key={key}
                   variant='ghost'
-                  className='w-full text-left text-white hover:!bg-[#141414] !border-[1px] !border-[#1A1A1A] hover:!border-[#333333]'
+                  className={`rounded-[6px] hover:!bg-[#141414] !border-[1px] !border-[#1A1A1A] hover:!border-[#333333] hover:!text-white ${
+                    path === item.link ? '!bg-[#141414] !border-[#333333]' : ''
+                  }`}
+                  style={{ color: '#7E7E81' }}
+                  onClick={() => router.push(item.link)}
                 >
-                  {item}
+                  {item.name}
                 </Button>
               ))}
             </div>
 
             {/* Contact Button inside Drawer */}
-            <Button className='w-full mt-4 text-[#141414] bg-[#FFD11A] rounded-[6px] transition-all duration-300'>
+            <Button
+              onClick={() => router.push('/contact')}
+              className='w-full mt-4 text-[#141414] bg-[#FFD11A] rounded-[6px] transition-all duration-300'
+            >
               Contact Us
             </Button>
           </DrawerContent>
