@@ -1,3 +1,4 @@
+'use client'
 import ArrowBtn from '@/components/utilities/ArrowBtn'
 import CustomHeader from '@/components/utilities/CustomHeader'
 import CustomText from '@/components/utilities/CustomText'
@@ -11,6 +12,7 @@ import EbooksImage from '@/public/assets/ebooks_image.svg'
 import users from '@/public/users.png'
 import { FaEye } from 'react-icons/fa6'
 import CustomButton from '@/components/utilities/CustomButton'
+import { motion } from 'motion/react'
 
 type Props = {}
 

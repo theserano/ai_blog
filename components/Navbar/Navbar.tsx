@@ -13,6 +13,8 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer'
 import { useRouter, usePathname } from 'next/navigation'
+import { motion } from 'motion/react'
+import CustomHeader from '../utilities/CustomHeader'
 
 type Props = {}
 
@@ -38,12 +40,15 @@ const navLinks: { name: string; link: string }[] = [
 const Navbar = ({}: Props) => {
   const router = useRouter()
   const path = usePathname()
+  const MotionImage = motion(Image)
 
   return (
     <section>
       {/* Top Newsletter Bar */}
-      <p className='flex items-center justify-center text-[12px] md:text-[14px] lg:text-[16px] text-[#98989A] px-[24px] py-[12px]'>
-        Subscribe to our Newsletter For New & latest Blogs and Resources{' '}
+      <p
+        className='flex items-center justify-center text-[12px] md:text-[14px] lg:text-[16px] text-[#98989A] px-[24px] py-[12px] h-12'
+      >
+        Subscribe to our Newsletter For New & latest Blogs and Resources
         <GoArrowUpRight color='#FFD11A' />
       </p>
 
@@ -51,8 +56,20 @@ const Navbar = ({}: Props) => {
       <div className='flex items-center justify-between px-[20px] lg:px-[80px] py-[20px] bg-[#1A1A1A] border-[#7E7E81]'>
         {/* Logo */}
         <div className='flex items-center gap-2'>
-          <Image src={Logo} alt='logo' />
-          <h3 className=''>FutureTech</h3>
+          <MotionImage
+            src={Logo}
+            alt='logo'
+            initial={{ rotate: 0 }}
+            whileInView={{ rotate: 360 }}
+            transition={{
+              duration: 2,
+              ease: [0.34, 1.56, 0.64, 1],
+              delay: 0.5,
+            }}
+          />
+          <CustomHeader type='h5' className=''>
+            FutureTech
+          </CustomHeader>
         </div>
 
         {/* Desktop Navigation (Hidden on Small Screens) */}

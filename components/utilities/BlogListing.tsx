@@ -128,7 +128,9 @@ const BlogCard = ({
 }
 
 const BlogListing = ({ data }: Props) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All')
+  const [selectedCategory, setSelectedCategory] =
+    useState<string>('Quantum Computing')
+  const MotionButton = motion(Button);
 
   const renderData = (data: BlogListingProps[]) => {
     if (selectedCategory === 'All') {
@@ -181,16 +183,23 @@ const BlogListing = ({ data }: Props) => {
     <section className=''>
       <div className='flex flex-row gap-[14px] sticky top-[-5px] bg-[#0A0A0A] xl:gap-[20px] w-full overflow-x-scroll px-[20px] xl:px-[80px] 2xl:px-[162px] py-[20px] lg:py-[50px] border-[1px] z-20'>
         {data.map((value, key) => (
-          <Button
+          <MotionButton
             key={key}
             className={`px-[16px] lg:px-[20px] xl:px-[24px] py-[18px] lg:py-[24px] xl:py-[30px] text-[#98989A] text-[14px] lg:text-[16px] xl:text-[18px] rounded-[4px] ${
               selectedCategory === value.category ? 'bg-[#262626]' : ''
             }`}
             variant={`outline`}
             onClick={() => setSelectedCategory(value.category)}
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              delay: 0.5 + key * 0.2,
+              ease: [0.34, 1.56, 0.64, 1],
+              duration: 1,
+            }}
           >
             {value.category}
-          </Button>
+          </MotionButton>
         ))}
       </div>
       <div className='flex flex-col max-h-[400px] md:max-h-[850px] overflow-y-scroll'>

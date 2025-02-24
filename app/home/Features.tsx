@@ -1,3 +1,4 @@
+'use client'
 import CustomHeader from '@/components/utilities/CustomHeader'
 import Image from 'next/image'
 import React from 'react'
@@ -6,6 +7,7 @@ import RIBlog from '@/public/assets/ri_blog.svg'
 import CustomText from '@/components/utilities/CustomText'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import SectionHeader from '@/components/utilities/SectionHeader'
+import { motion } from 'motion/react'
 
 type Props = {}
 
@@ -53,6 +55,8 @@ const researchCardDetails: cardDetails[] = [
 ]
 
 const Features = ({}: Props) => {
+  const MotionCard = motion(Card)
+  const MotionImage = motion(Image)
   return (
     <section>
       <SectionHeader
@@ -65,44 +69,126 @@ const Features = ({}: Props) => {
       <div className='grid grid_cols_2_big'>
         <div className='pl-[20px] xl:pl-[80px] 2xl:pl-[162px] pr-[20px] xl:pr-[80px] py-[50px] flex justify-start xl:justify-center items-center border-t-[1px] xl:border-b-[1px] border-l-[1px] border-r-[1px]'>
           <div className='flex flex-col gap-2'>
-            <Image src={FTBlog} alt='image' className='mb-4' />
-            <CustomHeader type='h3'>Future Technology Blog</CustomHeader>
-            <CustomText>
-              Stay informed with our blog section dedicated to future
-              technology.
-            </CustomText>
+            <MotionImage
+              initial={{ rotate: 0, opacity: 0 }}
+              whileInView={{ rotate: 360, opacity: 1 }}
+              transition={{
+                delay: 0.5,
+                ease: [0.34, 1.56, 0.64, 1],
+                duration: 2,
+              }}
+              src={FTBlog}
+              alt='image'
+              className='mb-4'
+            />
+            <motion.div
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{
+                delay: 0.5,
+                ease: [0.34, 1.56, 0.64, 1],
+                duration: 1,
+              }}
+            >
+              <CustomHeader type='h3'>Future Technology Blog</CustomHeader>
+            </motion.div>
+            <motion.div
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{
+                delay: 0.5,
+                ease: [0.34, 1.56, 0.64, 1],
+                duration: 1,
+              }}
+            >
+              <CustomText>
+                Stay informed with our blog section dedicated to future
+                technology.
+              </CustomText>
+            </motion.div>
           </div>
         </div>
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-[30px] p-[20px] xl:p-[80px] xl:border-t-[1px] border-b-[1px] border-r-[1px]'>
           {futureCardDetails.map((card, key) => (
-            <Card className='bg-[#1A1A1A]' key={key}>
+            <MotionCard
+              initial={{ scale: 0.7, opacity: 0 }}
+              whileInView={{ scale: [0.7, 1, 1], opacity: 1 }}
+              transition={{
+                delay: 0.5 + key * 0.2,
+                ease: [0.34, 1.56, 0.64, 1],
+                duration: 2,
+              }}
+              className='bg-[#1A1A1A]'
+              key={key}
+            >
               <CardHeader>
                 <CardTitle>{card.title}</CardTitle>
               </CardHeader>
               <CardContent className='text-[#98989A]'>{card.body}</CardContent>
-            </Card>
+            </MotionCard>
           ))}
         </div>
       </div>
       <div className='grid grid_cols_2_big'>
         <div className='pl-[20px] xl:pl-[80px] 2xl:pl-[162px] pr-[20px] xl:pr-[80px] py-[50px] flex justify-start xl:justify-center items-center xl:border-b-[1px] border-l-[1px] border-r-[1px]'>
           <div className='flex flex-col gap-2'>
-            <Image src={RIBlog} alt='image' className='mb-4' />
-            <CustomHeader type='h3'>Research Insights Blogs</CustomHeader>
-            <CustomText>
-              Dive deep into future technology concepts with our research
-              section.
-            </CustomText>
+            <MotionImage
+              initial={{ rotate: 0, opacity: 0 }}
+              whileInView={{ rotate: 360, opacity: 1 }}
+              transition={{
+                delay: 0.5,
+                ease: [0.34, 1.56, 0.64, 1],
+                duration: 2,
+              }}
+              src={RIBlog}
+              alt='image'
+              className='mb-4'
+            />
+            <motion.div
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{
+                delay: 0.5,
+                ease: [0.34, 1.56, 0.64, 1],
+                duration: 1,
+              }}
+            >
+              <CustomHeader type='h3'>Research Insights Blogs</CustomHeader>
+            </motion.div>
+            <motion.div
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{
+                delay: 0.5,
+                ease: [0.34, 1.56, 0.64, 1],
+                duration: 1,
+              }}
+            >
+              <CustomText>
+                Dive deep into future technology concepts with our research
+                section.
+              </CustomText>
+            </motion.div>
           </div>
         </div>
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-[30px] p-[20px] xl:p-[80px] border-b-[1px] border-r-[1px]'>
           {researchCardDetails.map((card, key) => (
-            <Card className='bg-[#1A1A1A]' key={key}>
+            <MotionCard
+              initial={{ scale: 0.7, opacity: 0 }}
+              whileInView={{ scale: [0.7, 1, 1], opacity: 1 }}
+              transition={{
+                delay: 0.5 + key * 0.2,
+                ease: [0.34, 1.56, 0.64, 1],
+                duration: 2,
+              }}
+              className='bg-[#1A1A1A]'
+              key={key}
+            >
               <CardHeader>
                 <CardTitle>{card.title}</CardTitle>
               </CardHeader>
               <CardContent className='text-[#98989A]'>{card.body}</CardContent>
-            </Card>
+            </MotionCard>
           ))}
         </div>
       </div>
