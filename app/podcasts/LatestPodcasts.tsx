@@ -8,6 +8,7 @@ import {
   CardContent,
 } from '@/components/ui/card'
 import CustomText from '@/components/utilities/CustomText'
+import { motion } from 'motion/react'
 
 interface Podcast {
   title: string
@@ -20,6 +21,7 @@ interface Podcast {
 
 const LatestPodcasts: React.FC<{ podcasts: Podcast[] }> = ({ podcasts }) => {
   const [playingIndex, setPlayingIndex] = useState<number | null>(null)
+  const MotionCard = motion(Card);
 
   const handleVideoClick = (index: number) => {
     setPlayingIndex(index)
@@ -28,7 +30,17 @@ const LatestPodcasts: React.FC<{ podcasts: Podcast[] }> = ({ podcasts }) => {
   return (
     <div className='p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
       {podcasts.map((podcast, index) => (
-        <Card key={index} className='hover:shadow-lg transition-shadow'>
+        <MotionCard
+          initial={{ scale: 0.7, opacity: 0 }}
+          whileInView={{ scale: [0.7, 1, 1], opacity: 1 }}
+          transition={{
+            delay: 0.5 + index * 0.2,
+            ease: [0.34, 1.56, 0.64, 1],
+            duration: 2,
+          }}
+          key={index}
+          className='hover:shadow-lg transition-shadow'
+        >
           <CardHeader>
             <div className='relative'>
               {/* Show thumbnail if video is not playing */}
@@ -77,9 +89,7 @@ const LatestPodcasts: React.FC<{ podcasts: Podcast[] }> = ({ podcasts }) => {
               {podcast.title}
             </CardTitle>
             <CardDescription>
-                <CustomText>
-                    {podcast.host}
-                </CustomText>
+              <CustomText>{podcast.host}</CustomText>
             </CardDescription>
           </CardHeader>
           <CardContent className='space-y-4'>
@@ -105,7 +115,7 @@ const LatestPodcasts: React.FC<{ podcasts: Podcast[] }> = ({ podcasts }) => {
               </CustomText>
             </div>
           </CardContent>
-        </Card>
+        </MotionCard>
       ))}
     </div>
   )

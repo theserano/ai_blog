@@ -12,9 +12,12 @@ import CustomHeader from '@/components/utilities/CustomHeader'
 import ArrowBtn from '@/components/utilities/ArrowBtn'
 import TypeEffect from '@/components/utilities/TypeEffect'
 import { motion } from 'motion/react'
+import { useRouter } from 'next/navigation'
+
 
 const HomeHero = () => {
   const MotionImage = motion(Image)
+  const router = useRouter();
   return (
     <section>
       <div className='grid grid_cols_2'>
@@ -31,7 +34,6 @@ const HomeHero = () => {
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{
-                  delay: 0.5,
                   ease: [0.34, 1.56, 0.64, 1],
                 }}
               >
@@ -90,7 +92,7 @@ const HomeHero = () => {
             alt='shine'
             className='!absolute top-0 left-0 -z-10 w-[250px] lg:w-fit'
             initial={{ opacity: 0.1 }}
-            whileInView={{ opacity: [0.1, 0.3, 0.1, 0.3, 0.1] }}
+            whileInView={{ opacity: [0.1, 0.5, 0.1, 0.5, 0.1] }}
             transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
           />
           <article className='flex flex-col gap-4'>
@@ -102,7 +104,6 @@ const HomeHero = () => {
               whileInView={{ scale: [1, 1.1, 1], opacity: 1 }}
               transition={{
                 duration: 0.5,
-                delay: 0.5,
                 ease: [0.34, 1.56, 0.64, 1],
               }}
             />
@@ -111,12 +112,11 @@ const HomeHero = () => {
               whileInView={{ x: 0, opacity: 1 }}
               transition={{
                 duration: 0.5,
-                delay: 0.5,
                 ease: [0.34, 1.56, 0.64, 1],
               }}
               className='font-medium text-[16px] xl:text-[20px] 2xl:text-[24px] leading-[150%]'
             >
-              x Explore 1000+ resources
+              Explore 1000+ resources
             </motion.h3>
             <p className='text-[#7E7E81] text-[14px] xl:text-[16px] 2xl:text-[18px] leading-[150%]'>
               Over 1,000 articles on emerging tech trends and breakthroughs.
@@ -124,6 +124,7 @@ const HomeHero = () => {
             <ArrowBtn
               buttonText='Explore Resource'
               className='bg-transparent'
+              onClick={() => router.push('/resources')}
             />
           </article>
         </div>
@@ -151,7 +152,6 @@ const HomeHero = () => {
             initial={{ rotate: 0, scale: 0.5, opacity: 0 }}
             whileInView={{ rotate: 360, scale: 1, opacity: 1 }}
             transition={{
-              delay: 0.5,
               ease: [0.34, 1.56, 0.64, 1],
               duration: 1,
             }}
@@ -179,7 +179,6 @@ const HomeHero = () => {
             initial={{ rotate: 0, scale: 0.5, opacity: 0 }}
             whileInView={{ rotate: 360, scale: 1, opacity: 1 }}
             transition={{
-              delay: 0.5,
               ease: [0.34, 1.56, 0.64, 1],
               duration: 1,
             }}
@@ -207,7 +206,6 @@ const HomeHero = () => {
             initial={{ rotate: 0, scale: 0.5, opacity: 0 }}
             whileInView={{ rotate: 360, scale: 1, opacity: 1 }}
             transition={{
-              delay: 0.5,
               ease: [0.34, 1.56, 0.64, 1],
               duration: 1,
             }}

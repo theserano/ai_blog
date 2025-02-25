@@ -12,6 +12,7 @@ type Props = {
   headerText: string
   buttonText?: string
   showButton?: boolean
+  buttonClick?: () => void
 }
 
 const SectionHeader = ({
@@ -19,6 +20,7 @@ const SectionHeader = ({
   headerText,
   buttonText,
   showButton = false,
+  buttonClick
 }: Props) => {
   const MotionBadge = motion(Badge);
   return (
@@ -28,7 +30,6 @@ const SectionHeader = ({
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{
-            delay: 0.5,
             ease: [0.34, 1.56, 0.64, 1],
             duration: 1,
           }}
@@ -41,7 +42,6 @@ const SectionHeader = ({
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{
-            delay: 0.5,
             ease: [0.34, 1.56, 0.64, 1],
             duration: 1,
           }}
@@ -54,12 +54,11 @@ const SectionHeader = ({
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{
-            delay: 0.5,
             ease: [0.34, 1.56, 0.64, 1],
             duration: 1,
           }}
         >
-          <ArrowBtn buttonText={buttonText ? buttonText : ''} />
+          <ArrowBtn onClick={() => {if(buttonClick) buttonClick()}} buttonText={buttonText ? buttonText : ''} />
         </motion.div>
       )}
     </div>

@@ -1,8 +1,11 @@
+'use client'
 import SectionHeader from '@/components/utilities/SectionHeader'
 import React from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import { FaStar } from 'react-icons/fa'
+import { motion } from 'motion/react'
+import { useRouter } from 'next/navigation'
 
 type Props = {}
 
@@ -47,17 +50,30 @@ const testimonials = [
 ]
 
 const WhatReaders = ({}: Props) => {
+  const MotionCard = motion(Card);
+  const router = useRouter();
   return (
     <section>
       <SectionHeader
         badgeText='What Our Readers Say'
         headerText='Real Words from Real Readers'
         buttonText='View All Testimonials'
+        buttonClick={() => router.push('/news')}
         showButton
       />
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6'>
         {testimonials.map((testimonial, index) => (
-          <Card key={index} className='bg-[#121212] border p-6'>
+          <MotionCard
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{
+              delay: 0.5 + index * 0.2,
+              ease: [0.34, 1.56, 0.64, 1],
+              duration: 1,
+            }}
+            key={index}
+            className='bg-[#121212] border p-6'
+          >
             <CardContent className='flex flex-col items-center text-center gap-4'>
               {/* Avatar */}
               <Avatar className='w-16 h-16'>
@@ -89,7 +105,7 @@ const WhatReaders = ({}: Props) => {
                 {testimonial.feedback}
               </p>
             </CardContent>
-          </Card>
+          </MotionCard>
         ))}
       </div>
     </section>

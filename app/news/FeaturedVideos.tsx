@@ -1,3 +1,4 @@
+'use client'
 import SectionHeader from '@/components/utilities/SectionHeader'
 import VideoGrid from '@/components/utilities/VideoGrid'
 import React from 'react'
@@ -5,6 +6,7 @@ import mars from '@/public/assets/mars.svg'
 import blockChain from '@/public/assets/block_chain.svg'
 import breaking from '@/public/assets/breaking.svg'
 import revol from '@/public/assets/revol.svg'
+import { useRouter } from 'next/navigation'
 
 type Props = {}
 
@@ -42,12 +44,14 @@ const videos = [
 
 
 const FeaturedVideos = ({}: Props) => {
+  const router = useRouter()
   return (
     <section>
       <SectionHeader
         badgeText='Featured Videos'
         headerText='Visual Insights for the Modern Viewer'
         buttonText='View All'
+        buttonClick={() => router.push('/podcasts')}
         showButton
       />
       <VideoGrid videos={videos} />

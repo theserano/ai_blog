@@ -10,36 +10,76 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import { BiMessageRounded } from 'react-icons/bi'
 import CustomButton from '@/components/utilities/CustomButton'
 import NewsCards from './NewsCards'
+import { useRouter } from 'next/navigation'
 
 type Props = {}
 
 const Hero = ({}: Props) => {
   const [liked, setLiked] = useState(false)
-  
+  const MotionImage = motion(Image)
+  const router = useRouter();
+
   return (
     <section>
       <article className='flex flex-col gap-0 md:gap-[20px] px-[20px] xl:px-[80px] 2xl:px-[162px] py-[50px] md:py-[80px] 2xl:py-[120px] border-b'>
-        <CustomHeader type='h1'>Today's Headlines: Stay</CustomHeader>
+        <motion.div
+          initial={{ x: -50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{
+            ease: [0.34, 1.56, 0.64, 1],
+            duration: 1,
+          }}
+        >
+          <CustomHeader type='h1'>Today's Headlines: Stay</CustomHeader>
+        </motion.div>
         <div className='flex flex-col md:flex-row gap-[20px] lg:gap-[60px] xl:gap-[80px] md:items-center justify-start'>
-          <CustomHeader type='h1'>Informed</CustomHeader>
-          <CustomText>
-            Explore the latest news from around the world. We bring you
-            up-to-the-minute updates on the most significant events, trends, and
-            stories. Discover the world through our news coverage.
-          </CustomText>
+          <motion.div
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              ease: [0.34, 1.56, 0.64, 1],
+              duration: 1,
+            }}
+          >
+            <CustomHeader type='h1'>Informed</CustomHeader>
+          </motion.div>
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+              ease: [0.34, 1.56, 0.64, 1],
+              duration: 1,
+            }}
+          >
+            <CustomText>
+              Explore the latest news from around the world. We bring you
+              up-to-the-minute updates on the most significant events, trends,
+              and stories. Discover the world through our news coverage.
+            </CustomText>
+          </motion.div>
         </div>
       </article>
       {/* global climate article */}
       <article className='flex flex-col lg:flex-row lg:items-center justify-between gap-[30px] md:gap-[80px] px-[20px] xl:px-[80px] 2xl:px-[162px] py-[50px] md:py-[80px] 2xl:py-[120px] border-b'>
-        <Image
+        <MotionImage
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 2, ease: 'linear' }}
           src={GlobalClimate}
           alt='global climate'
-          //   className='2xl:!max-w-[515px] xl:!max-w-[415px] lg:!max-w-[300px] !max-w-full 2xl:!max-h-[427px] xl:!max-h-[327px] !max-h-[200px]'
           className='lg:max-w-[400px] w-full max-h-[200px] md:max-h-[400px] object-cover rounded-[10px]'
         />
         <div className='flex flex-col gap-[20px] md:gap-[50px]'>
           {/* title and subtext */}
-          <div className='flex flex-col gap-[20px] md:gap-[30px]'>
+          <motion.div
+            initial={{ y: -50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+              ease: [0.34, 1.56, 0.64, 1],
+              duration: 1,
+            }}
+            className='flex flex-col gap-[20px] md:gap-[30px]'
+          >
             <CustomHeader type='h3'>
               Global Climate Summit Addresses Urgent Climate Action
             </CustomHeader>
@@ -48,9 +88,17 @@ const Hero = ({}: Props) => {
               urgent climate action, emissions reductions, and renewable energy
               targets.
             </CustomText>
-          </div>
+          </motion.div>
           {/* flex header and subtext */}
-          <div className='flex gap-[50px] justify-start items-center'>
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+              ease: [0.34, 1.56, 0.64, 1],
+              duration: 1,
+            }}
+            className='flex gap-[50px] justify-start items-center'
+          >
             <div className='flex flex-col gap-[4px]'>
               <CustomText>Category</CustomText>
               <CustomText className='text-white'>Environment</CustomText>
@@ -63,10 +111,18 @@ const Hero = ({}: Props) => {
               <CustomText>Author</CustomText>
               <CustomText className='text-white'>Jane Smith</CustomText>
             </div>
-          </div>
+          </motion.div>
           {/* comment, likes and read more  */}
           <div className='flex gap-[20px] justify-between items-center'>
-            <div className='flex gap-4'>
+            <motion.div
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{
+                ease: [0.34, 1.56, 0.64, 1],
+                duration: 1,
+              }}
+              className='flex gap-4'
+            >
               <Button
                 variant='outline'
                 size='sm'
@@ -96,11 +152,21 @@ const Hero = ({}: Props) => {
                 <BiMessageRounded className='text-gray-400 w-5 h-5' />
                 <span className='text-gray-400'>3.5k</span>
               </Button>
-            </div>
-            <CustomButton
-              buttonText='Read More'
-              className='bg-transparent w-fit'
-            />
+            </motion.div>
+            <motion.div
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{
+                ease: [0.34, 1.56, 0.64, 1],
+                duration: 1,
+              }}
+            >
+              <CustomButton
+                buttonText='Read More'
+                className='bg-transparent w-fit'
+                onClick={() => router.push('/blog')}
+              />
+            </motion.div>
           </div>
         </div>
       </article>

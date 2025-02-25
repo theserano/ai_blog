@@ -22,20 +22,20 @@ export default function CustomCursor() {
   }, [mouseX, mouseY])
 
   // Hide system cursor globally
-  useEffect(() => {
-    const hideCursor = () => (document.body.style.cursor = 'none')
-    hideCursor() // Hide immediately
+  // useEffect(() => {
+  //   const hideCursor = () => (document.body.style.cursor = 'none')
+  //   hideCursor() // Hide immediately
 
-    window.addEventListener('focus', hideCursor) // When user focuses tab
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden) hideCursor() // When user returns to page
-    })
+  //   window.addEventListener('focus', hideCursor) // When user focuses tab
+  //   document.addEventListener('visibilitychange', () => {
+  //     if (!document.hidden) hideCursor() // When user returns to page
+  //   })
 
-    return () => {
-      window.removeEventListener('focus', hideCursor)
-      document.removeEventListener('visibilitychange', hideCursor)
-    }
-  }, [])
+  //   return () => {
+  //     window.removeEventListener('focus', hideCursor)
+  //     document.removeEventListener('visibilitychange', hideCursor)
+  //   }
+  // }, [])
 
   // Detect hover on links/buttons
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function CustomCursor() {
     <>
       {/* Outer ring */}
       <motion.div
-        className='cursor-ring'
+        className='cursor-ring !hidden lg:!block'
         style={{
           x: springX,
           y: springY,
@@ -66,7 +66,7 @@ export default function CustomCursor() {
 
       {/* Inner dot */}
       <motion.div
-        className='cursor-dot'
+        className='cursor-dot !hidden lg:!block'
         style={{
           x: springX,
           y: springY,

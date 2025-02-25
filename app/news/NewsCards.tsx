@@ -1,166 +1,133 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import politics from '@/public/assets/politics.svg'
 import techGiants from '@/public/assets/tech_giants.svg'
 import covid from '@/public/assets/covid.svg'
 import ArrowBtn from '@/components/utilities/ArrowBtn'
-import Image from "next/image";
-import CustomHeader from "@/components/utilities/CustomHeader";
-import CustomText from "@/components/utilities/CustomText";
-import { Button } from "@/components/ui/button";
-import { motion } from "motion/react";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { BiMessageRounded } from "react-icons/bi";
-import CustomButton from "@/components/utilities/CustomButton";
+import Image from 'next/image'
+import CustomHeader from '@/components/utilities/CustomHeader'
+import CustomText from '@/components/utilities/CustomText'
+import { Button } from '@/components/ui/button'
+import { motion } from 'motion/react'
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
+import { BiMessageRounded } from 'react-icons/bi'
+import CustomButton from '@/components/utilities/CustomButton'
+import { useRouter } from 'next/navigation'
 
 type Props = {
-    className?: string;
-};
+  className?: string
+}
+
+type NewsItem = {
+  id: number
+  image: string
+  title: string
+  category: string
+  likes: number
+  comments: number
+}
+
+const newsData: NewsItem[] = [
+  {
+    id: 1,
+    image: politics,
+    title: 'A Victory for Progressive Policies',
+    category: 'Politics',
+    likes: 2500,
+    comments: 1500,
+  },
+  {
+    id: 2,
+    image: techGiants,
+    title: 'Tech Giants Unveil AI Innovations',
+    category: 'Technology',
+    likes: 20500,
+    comments: 3500,
+  },
+  {
+    id: 3,
+    image: covid,
+    title: 'COVID-19 Variants',
+    category: 'Health',
+    likes: 7500,
+    comments: 2500,
+  },
+]
 
 const NewsCards = ({ className }: Props) => {
-    const [liked1, setLiked1] = useState(false)
-    const [liked2, setLiked2] = useState(false)
-    const [liked3, setLiked3] = useState(false)
+  const [liked, setLiked] = useState<Record<number, boolean>>({})
+  const router = useRouter();
+
   return (
-    <article className={`grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-[30px] px-[20px] xl:px-[80px] 2xl:px-[162px] py-[50px] md:py-[80px] 2xl:py-[120px] border-b ${className}`}>
-      <div className='flex flex-col gap-[20px]'>
-        <Image src={politics} alt='image' className='rounded-[12px] w-full' />
-        <div className='flex flex-col gap-[20px]'>
-          <div className='flex flex-col gap-[4px]'>
-            <CustomHeader type='h5'>
-              A Victory for Progressive Policies
-            </CustomHeader>
-            <CustomText className='text-white'>Politics</CustomText>
-          </div>
-          <div className='flex gap-[20px] justify-between items-center'>
-            <div className='flex gap-4'>
-              <Button
-                variant='outline'
-                size='sm'
-                className='rounded-full px-4 py-2 flex items-center gap-1 border-gray-700'
-                onClick={() => setLiked1(!liked1)}
-              >
-                <motion.span
-                  initial={{ scale: 1 }}
-                  animate={{ scale: liked1 ? 1.2 : 1 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  {liked1 ? (
-                    <AiFillHeart className='text-red-500 w-5 h-5' />
-                  ) : (
-                    <AiOutlineHeart className='text-gray-400 w-5 h-5' />
-                  )}
-                </motion.span>
-                <span className='text-gray-400'>2.5k</span>
-              </Button>
-
-              {/* Comment Button */}
-              <Button
-                variant='outline'
-                size='sm'
-                className='rounded-full px-4 py-2 flex items-center gap-1 border-gray-700'
-              >
-                <BiMessageRounded className='text-gray-400 w-5 h-5' />
-                <span className='text-gray-400'>1.5k</span>
-              </Button>
+    <article
+      className={`grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 px-5 xl:px-20 2xl:px-40 py-12 md:py-20 2xl:py-32 border-b ${className}`}
+    >
+      {newsData.map((news, index) => (
+        <motion.div
+          key={news.id}
+          className='flex flex-col gap-5'
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.2, duration: 0.5 }}
+        >
+          <Image
+            src={news.image}
+            alt={news.title}
+            className='rounded-lg w-full'
+          />
+          <div className='flex flex-col gap-5'>
+            <div className='flex flex-col gap-1'>
+              <CustomHeader type='h5'>{news.title}</CustomHeader>
+              <CustomText className='text-white'>{news.category}</CustomText>
             </div>
-            <ArrowBtn buttonText='Read More' className='bg-transparent w-fit' />
-          </div>
-        </div>
-      </div>
-      <div className='flex flex-col gap-[20px]'>
-        <Image src={techGiants} alt='image' className='rounded-[12px] w-full' />
-        <div className='flex flex-col gap-[20px]'>
-          <div className='flex flex-col gap-[4px]'>
-            <CustomHeader type='h5'>
-              Tech Giants Unveil AI Innovations
-            </CustomHeader>
-            <CustomText className='text-white'>Technology</CustomText>
-          </div>
-          <div className='flex gap-[20px] justify-between items-center'>
-            <div className='flex gap-4'>
-              <Button
-                variant='outline'
-                size='sm'
-                className='rounded-full px-4 py-2 flex items-center gap-1 border-gray-700'
-                onClick={() => setLiked2(!liked2)}
-              >
-                <motion.span
-                  initial={{ scale: 1 }}
-                  animate={{ scale: liked2 ? 1.2 : 1 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
+            <div className='flex justify-between items-center'>
+              <div className='flex gap-4'>
+                <Button
+                  variant='outline'
+                  size='sm'
+                  className='rounded-full px-4 py-2 flex items-center gap-1 border-gray-700'
+                  onClick={() =>
+                    setLiked((prev) => ({ ...prev, [news.id]: !prev[news.id] }))
+                  }
                 >
-                  {liked2 ? (
-                    <AiFillHeart className='text-red-500 w-5 h-5' />
-                  ) : (
-                    <AiOutlineHeart className='text-gray-400 w-5 h-5' />
-                  )}
-                </motion.span>
-                <span className='text-gray-400'>20.5k</span>
-              </Button>
+                  <motion.span
+                    initial={{ scale: 1 }}
+                    animate={{ scale: liked[news.id] ? 1.2 : 1 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    {liked[news.id] ? (
+                      <AiFillHeart className='text-red-500 w-5 h-5' />
+                    ) : (
+                      <AiOutlineHeart className='text-gray-400 w-5 h-5' />
+                    )}
+                  </motion.span>
+                  <span className='text-gray-400'>
+                    {news.likes.toLocaleString()}
+                  </span>
+                </Button>
 
-              {/* Comment Button */}
-              <Button
-                variant='outline'
-                size='sm'
-                className='rounded-full px-4 py-2 flex items-center gap-1 border-gray-700'
-              >
-                <BiMessageRounded className='text-gray-400 w-5 h-5' />
-                <span className='text-gray-400'>3.5k</span>
-              </Button>
-            </div>
-            <ArrowBtn buttonText='Read More' className='bg-transparent w-fit' />
-          </div>
-        </div>
-      </div>
-      <div className='flex flex-col gap-[20px]'>
-        <Image src={covid} alt='image' className='rounded-[12px] w-full' />
-        <div className='flex flex-col gap-[20px]'>
-          <div className='flex flex-col gap-[4px]'>
-            <CustomHeader type='h5'>COVID-19 Variants</CustomHeader>
-            <CustomText className='text-white'>Health</CustomText>
-          </div>
-          <div className='flex gap-[20px] justify-between items-center'>
-            <div className='flex gap-4'>
-              <Button
-                variant='outline'
-                size='sm'
-                className='rounded-full px-4 py-2 flex items-center gap-1 border-gray-700'
-                onClick={() => setLiked3(!liked3)}
-              >
-                <motion.span
-                  initial={{ scale: 1 }}
-                  animate={{ scale: liked3 ? 1.2 : 1 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
+                <Button
+                  variant='outline'
+                  size='sm'
+                  className='rounded-full px-4 py-2 flex items-center gap-1 border-gray-700'
                 >
-                  {liked3 ? (
-                    <AiFillHeart className='text-red-500 w-5 h-5' />
-                  ) : (
-                    <AiOutlineHeart className='text-gray-400 w-5 h-5' />
-                  )}
-                </motion.span>
-                <span className='text-gray-400'>7.5k</span>
-              </Button>
-
-              {/* Comment Button */}
-              <Button
-                variant='outline'
-                size='sm'
-                className='rounded-full px-4 py-2 flex items-center gap-1 border-gray-700'
-              >
-                <BiMessageRounded className='text-gray-400 w-5 h-5' />
-                <span className='text-gray-400'>2.5k</span>
-              </Button>
+                  <BiMessageRounded className='text-gray-400 w-5 h-5' />
+                  <span className='text-gray-400'>
+                    {news.comments.toLocaleString()}
+                  </span>
+                </Button>
+              </div>
+              <ArrowBtn
+                buttonText='Read More'
+                className='bg-transparent w-fit'
+                onClick={() => router.push(`/blog`)}
+              />
             </div>
-            <CustomButton
-              buttonText='Read More'
-              className='bg-transparent w-fit'
-            />
           </div>
-        </div>
-      </div>
+        </motion.div>
+      ))}
     </article>
   )
-};
+}
 
-export default NewsCards;
+export default NewsCards

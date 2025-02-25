@@ -8,6 +8,7 @@ import CustomText from '@/components/utilities/CustomText'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import SectionHeader from '@/components/utilities/SectionHeader'
 import { motion } from 'motion/react'
+import { useRouter } from 'next/navigation'
 
 type Props = {}
 
@@ -57,12 +58,14 @@ const researchCardDetails: cardDetails[] = [
 const Features = ({}: Props) => {
   const MotionCard = motion(Card)
   const MotionImage = motion(Image)
+  const router = useRouter();
   return (
     <section>
       <SectionHeader
         badgeText='Unlock the Power of'
         headerText='FutureTech Features'
         buttonText='Explore'
+        buttonClick={() => router.push('/podcasts')}
         showButton
       />
 
@@ -73,7 +76,6 @@ const Features = ({}: Props) => {
               initial={{ rotate: 0, opacity: 0 }}
               whileInView={{ rotate: 360, opacity: 1 }}
               transition={{
-                delay: 0.5,
                 ease: [0.34, 1.56, 0.64, 1],
                 duration: 2,
               }}
@@ -85,7 +87,6 @@ const Features = ({}: Props) => {
               initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{
-                delay: 0.5,
                 ease: [0.34, 1.56, 0.64, 1],
                 duration: 1,
               }}
@@ -96,7 +97,6 @@ const Features = ({}: Props) => {
               initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{
-                delay: 0.5,
                 ease: [0.34, 1.56, 0.64, 1],
                 duration: 1,
               }}
@@ -136,7 +136,6 @@ const Features = ({}: Props) => {
               initial={{ rotate: 0, opacity: 0 }}
               whileInView={{ rotate: 360, opacity: 1 }}
               transition={{
-                delay: 0.5,
                 ease: [0.34, 1.56, 0.64, 1],
                 duration: 2,
               }}
@@ -148,7 +147,6 @@ const Features = ({}: Props) => {
               initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{
-                delay: 0.5,
                 ease: [0.34, 1.56, 0.64, 1],
                 duration: 1,
               }}
@@ -159,7 +157,6 @@ const Features = ({}: Props) => {
               initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{
-                delay: 0.5,
                 ease: [0.34, 1.56, 0.64, 1],
                 duration: 1,
               }}

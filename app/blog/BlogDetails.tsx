@@ -9,13 +9,22 @@ import CustomHeader from '@/components/utilities/CustomHeader'
 
 const BlogDetails = () => {
   const [isExpanded, setIsExpanded] = useState(false)
+  const MotionCard = motion(Card)
   return (
     <div className='mx-auto px-[20px] xl:px-[80px] 2xl:px-[162px] py-[50px] md:py-[80px] 2xl:py-[120px]'>
       {/* Blog Content & Sidebar */}
       <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8'>
         {/* Main Blog Content */}
         <div className='lg:col-span-2 space-y-6'>
-          <Card className='p-6 bg-neutral-900'>
+          <MotionCard
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              ease: [0.34, 1.56, 0.64, 1],
+              duration: 1,
+            }}
+            className='p-6 bg-neutral-900'
+          >
             <CustomHeader type='h4' className='font-semibold'>
               Introduction
             </CustomHeader>
@@ -26,9 +35,17 @@ const BlogDetails = () => {
               AI in healthcare, from revolutionizing diagnostic accuracy to
               enhancing patient outcomes.
             </CustomText>
-          </Card>
+          </MotionCard>
 
-          <Card className='p-6 bg-neutral-900'>
+          <MotionCard
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              ease: [0.34, 1.56, 0.64, 1],
+              duration: 1,
+            }}
+            className='p-6 bg-neutral-900'
+          >
             <CustomHeader type='h4' className='!font-semibold'>
               Artificial Intelligence (AI)
             </CustomHeader>
@@ -102,13 +119,21 @@ const BlogDetails = () => {
                 )
               }
             />
-          </Card>
+          </MotionCard>
         </div>
 
         {/* Sidebar Section */}
         <aside className='space-y-6'>
           {/* Blog Stats */}
-          <Card className='p-4 bg-neutral-900 flex justify-between items-center'>
+          <MotionCard
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              ease: [0.34, 1.56, 0.64, 1],
+              duration: 1,
+            }}
+            className='p-4 bg-neutral-900 flex justify-between items-center'
+          >
             <div className='flex gap-4'>
               <div className='flex items-center gap-1'>
                 <Heart className='w-5 h-5 text-red-500' />
@@ -123,10 +148,18 @@ const BlogDetails = () => {
                 <span>206</span>
               </div>
             </div>
-          </Card>
+          </MotionCard>
 
           {/* Blog Metadata */}
-          <Card className='p-4 bg-neutral-900 space-y-2'>
+          <MotionCard
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              ease: [0.34, 1.56, 0.64, 1],
+              duration: 1,
+            }}
+            className='p-4 bg-neutral-900 space-y-2'
+          >
             <p className='flex gap-1'>
               <CustomText>Publication Date:</CustomText>{' '}
               <strong>October 15, 2024</strong>
@@ -140,10 +173,18 @@ const BlogDetails = () => {
             <p className='flex gap-1'>
               <CustomText>Author:</CustomText> <strong>Dr. Emily Walker</strong>
             </p>
-          </Card>
+          </MotionCard>
 
           {/* Table of Contents */}
-          <Card className='p-4 bg-neutral-900'>
+          <MotionCard
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              ease: [0.34, 1.56, 0.64, 1],
+              duration: 1,
+            }}
+            className='p-4 bg-neutral-900'
+          >
             <h3 className='text-lg font-semibold'>Table of Contents</h3>
             <ul className='mt-2 space-y-2 text-neutral-400'>
               <li>• Introduction</li>
@@ -156,7 +197,7 @@ const BlogDetails = () => {
               <li>• The Future of AI in Healthcare</li>
               <li>• Conclusion</li>
             </ul>
-          </Card>
+          </MotionCard>
         </aside>
       </div>
     </div>

@@ -1,3 +1,4 @@
+'use client'
 import CustomHeader from '@/components/utilities/CustomHeader'
 import CustomText from '@/components/utilities/CustomText'
 import React from 'react'
@@ -6,6 +7,7 @@ import aiRev from '@/public/assets/ai_rev.svg'
 import aiConv from '@/public/assets/ai_conv.svg'
 import SectionHeader from '@/components/utilities/SectionHeader'
 import LatestPodcasts from './LatestPodcasts'
+import { motion  } from 'motion/react'
 
 type Props = {}
 
@@ -97,23 +99,59 @@ const page = ({}: Props) => {
   return (
     <section>
       <article className='flex flex-col gap-0 md:gap-[20px] px-[20px] xl:px-[80px] 2xl:px-[162px] py-[50px] md:py-[80px] 2xl:py-[120px] border-b'>
-        <CustomHeader type='h1' className='hidden lg:block'>
-          Unlock the World of Artificial Intelligence{' '}
-        </CustomHeader>
-        <CustomHeader type='h1' className='block lg:hidden'>
-          Unlock the World of Artificial Intelligence through podcasts
-        </CustomHeader>
-        <div className='flex flex-col lg:flex-row gap-[20px] lg:gap-[60px] xl:gap-[80px] md:items-center justify-start'>
-          <CustomHeader type='h1' className='whitespace-nowrap hidden lg:block'>
-            through Podcasts
+        <motion.div
+          initial={{ x: -50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{
+            ease: [0.34, 1.56, 0.64, 1],
+            duration: 1,
+          }}
+        >
+          <CustomHeader type='h1' className='hidden lg:block'>
+            Unlock the World of Artificial Intelligence{' '}
           </CustomHeader>
-          <CustomText>
-            Dive deep into the AI universe with our collection of insightful
-            podcasts. Explore the latest trends, breakthroughs, and discussions
-            on artificial intelligence. Whether you're an enthusiast or a
-            professional, our AI podcasts offer a gateway to knowledge and
-            innovation.
-          </CustomText>
+        </motion.div>
+        <motion.div
+          initial={{ x: -50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{
+            ease: [0.34, 1.56, 0.64, 1],
+            duration: 1,
+          }}
+        >
+          <CustomHeader type='h1' className='block lg:hidden'>
+            Unlock the World of Artificial Intelligence through podcasts
+          </CustomHeader>
+        </motion.div>
+        <div className='flex flex-col lg:flex-row gap-[20px] lg:gap-[60px] xl:gap-[80px] md:items-center justify-start'>
+          <motion.div
+          initial={{ x: -50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{
+            ease: [0.34, 1.56, 0.64, 1],
+            duration: 1,
+          }}
+        >
+            <CustomHeader type='h1' className='whitespace-nowrap hidden lg:block'>
+              through Podcasts
+            </CustomHeader>
+        </motion.div>
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{
+            ease: [0.34, 1.56, 0.64, 1],
+            duration: 1,
+          }}
+        >
+            <CustomText>
+              Dive deep into the AI universe with our collection of insightful
+              podcasts. Explore the latest trends, breakthroughs, and discussions
+              on artificial intelligence. Whether you're an enthusiast or a
+              professional, our AI podcasts offer a gateway to knowledge and
+              innovation.
+            </CustomText>
+        </motion.div>
         </div>
       </article>
       <PodcastList podcasts={podcasts} />
