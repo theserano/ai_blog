@@ -5,9 +5,7 @@ import React from 'react'
 import { FaPlus } from 'react-icons/fa6'
 import { motion } from 'motion/react'
 
-type Props = {}
-
-const Hero = ({}: Props) => {
+const Hero = () => {
   return (
     <section>
       <article className='flex flex-col gap-0 md:gap-[20px] px-[20px] xl:px-[80px] 2xl:px-[162px] py-[50px] md:py-[80px] 2xl:py-[120px] border-b'>
@@ -42,10 +40,10 @@ const Hero = ({}: Props) => {
           >
             <CustomText>
               Dive deep into the AI universe with our collection of insightful
-              podcasts. Explore the latest trends, breakthroughs, and discussions
-              on artificial intelligence. Whether you're an enthusiast or a
-              professional, our AI podcasts offer a gateway to knowledge and
-              innovation.
+              podcasts. Explore the latest trends, breakthroughs, and
+              discussions on artificial intelligence. Whether you&apos;re an
+              enthusiast or a professional, our AI podcasts offer a gateway to
+              knowledge and innovation.
             </CustomText>
           </motion.div>
         </div>

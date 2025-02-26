@@ -12,9 +12,7 @@ import CustomButton from '@/components/utilities/CustomButton'
 import NewsCards from './NewsCards'
 import { useRouter } from 'next/navigation'
 
-type Props = {}
-
-const Hero = ({}: Props) => {
+const Hero = () => {
   const [liked, setLiked] = useState(false)
   const MotionImage = motion(Image)
   const router = useRouter();
@@ -30,7 +28,7 @@ const Hero = ({}: Props) => {
             duration: 1,
           }}
         >
-          <CustomHeader type='h1'>Today's Headlines: Stay</CustomHeader>
+          <CustomHeader type='h1'>Today&apos;s Headlines: Stay</CustomHeader>
         </motion.div>
         <div className='flex flex-col md:flex-row gap-[20px] lg:gap-[60px] xl:gap-[80px] md:items-center justify-start'>
           <motion.div
@@ -59,7 +57,6 @@ const Hero = ({}: Props) => {
           </motion.div>
         </div>
       </article>
-      {/* global climate article */}
       <article className='flex flex-col lg:flex-row lg:items-center justify-between gap-[30px] md:gap-[80px] px-[20px] xl:px-[80px] 2xl:px-[162px] py-[50px] md:py-[80px] 2xl:py-[120px] border-b'>
         <MotionImage
           initial={{ opacity: 0 }}

@@ -9,8 +9,6 @@ import { Card, CardContent } from '@/components/ui/card'
 import arrow from '@/public/assets/arrow-side-btn.svg'
 import { motion } from 'motion/react'
 
-type Props = {}
-
 interface cardProps {
   title: string
   content: string
@@ -34,7 +32,7 @@ const cards: cardProps[] = [
   },
 ]
 
-const LearnConnect = ({}: Props) => {
+const LearnConnect = () => {
   const MotionImage = motion(Image)
   const MotionCard = motion(Card)
   return (

@@ -3,9 +3,7 @@ import React from 'react'
 import Hero from './Hero'
 import ContactSection from './contactForm'
 
-type Props = {}
-
-const page = ({}: Props) => {
+const page = () => {
   return (
     <div>
       <Hero />

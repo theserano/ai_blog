@@ -5,9 +5,7 @@ import CustomText from '@/components/utilities/CustomText'
 import React from 'react'
 import { FaDiscord, FaLinkedin, FaTwitter } from 'react-icons/fa6'
 
-type Props = {}
-
-const Hero = ({}: Props) => {
+const Hero = () => {
   return (
     <section>
       <article className='border-t lg:border-b px-[20px] xl:px-[80px] 2xl:px-[162px]'>

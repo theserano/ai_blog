@@ -7,8 +7,6 @@ import { FaStar } from 'react-icons/fa'
 import { motion } from 'motion/react'
 import { useRouter } from 'next/navigation'
 
-type Props = {}
-
 // Testimonial Data
 const testimonials = [
   {
@@ -49,7 +47,7 @@ const testimonials = [
   },
 ]
 
-const WhatReaders = ({}: Props) => {
+const WhatReaders = () => {
   const MotionCard = motion(Card);
   const router = useRouter();
   return (

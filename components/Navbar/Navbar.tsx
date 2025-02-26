@@ -16,8 +16,6 @@ import { useRouter, usePathname } from 'next/navigation'
 import { motion } from 'motion/react'
 import CustomHeader from '../utilities/CustomHeader'
 
-type Props = {}
-
 const navLinks: { name: string; link: string }[] = [
   {
     name: 'Home',
@@ -37,7 +35,7 @@ const navLinks: { name: string; link: string }[] = [
   },
 ]
 
-const Navbar = ({}: Props) => {
+const Navbar = () => {
   const router = useRouter()
   const path = usePathname()
   const MotionImage = motion(Image)

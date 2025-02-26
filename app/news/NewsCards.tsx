@@ -11,7 +11,6 @@ import { Button } from '@/components/ui/button'
 import { motion } from 'motion/react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import { BiMessageRounded } from 'react-icons/bi'
-import CustomButton from '@/components/utilities/CustomButton'
 import { useRouter } from 'next/navigation'
 
 type Props = {

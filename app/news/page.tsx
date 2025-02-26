@@ -3,9 +3,7 @@ import Hero from './Hero'
 import NewsHub from './NewsHub'
 import FeaturedVideos from './FeaturedVideos'
 
-type Props = {}
-
-const NewsPage = ({}: Props) => {
+const NewsPage = () => {
   return (
     <div>
       <Hero />

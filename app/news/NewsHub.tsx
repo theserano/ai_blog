@@ -5,9 +5,7 @@ import React from 'react'
 import { blogCategories } from '../home/data'
 import { useRouter } from 'next/navigation'
 
-type Props = {}
-
-const NewsHub = ({}: Props) => {
+const NewsHub = () => {
   const router = useRouter();
   return (
     <section>

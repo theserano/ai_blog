@@ -10,8 +10,6 @@ import SectionHeader from '@/components/utilities/SectionHeader'
 import { motion } from 'motion/react'
 import { useRouter } from 'next/navigation'
 
-type Props = {}
-
 interface cardDetails {
   title: string
   body: string
@@ -55,7 +53,7 @@ const researchCardDetails: cardDetails[] = [
   },
 ]
 
-const Features = ({}: Props) => {
+const Features = () => {
   const MotionCard = motion(Card)
   const MotionImage = motion(Image)
   const router = useRouter();

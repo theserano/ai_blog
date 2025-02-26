@@ -8,8 +8,6 @@ import breaking from '@/public/assets/breaking.svg'
 import revol from '@/public/assets/revol.svg'
 import { useRouter } from 'next/navigation'
 
-type Props = {}
-
 const videos = [
   {
     id: '1',
@@ -43,7 +41,7 @@ const videos = [
 ]
 
 
-const FeaturedVideos = ({}: Props) => {
+const FeaturedVideos = () => {
   const router = useRouter()
   return (
     <section>

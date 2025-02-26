@@ -2,7 +2,6 @@
 import React from 'react'
 import { Badge } from '../ui/badge'
 import CustomHeader from './CustomHeader'
-import { Button } from '../ui/button'
 import ArrowBtn from './ArrowBtn'
 import { motion } from 'motion/react'
 

@@ -8,9 +8,8 @@ import ArrowBtn from '@/components/utilities/ArrowBtn'
 import NewsCards from '../news/NewsCards'
 import { motion } from 'motion/react'
 
-type Props = {}
 
-const Blog = ({}: Props) => {
+const Blog = () => {
   const MotionImage = motion(Image)
   return (
     <div>

@@ -1,12 +1,8 @@
-import CustomHeader from "@/components/utilities/CustomHeader";
-import CustomText from "@/components/utilities/CustomText";
 import React from "react";
 import Hero from "./Hero";
 import DiveInto from "./DiveInto";
 
-type Props = {};
-
-const page = ({}: Props) => {
+const page = () => {
   return (
     <div>
       <Hero />

@@ -134,7 +134,7 @@ const BlogListing = ({ data }: Props) => {
 
   const renderData = (data: BlogListingProps[]) => {
     if (selectedCategory === 'All') {
-      let newData = data.flatMap((element) => element.items)
+      const newData = data.flatMap((element) => element.items)
 
       return newData.map((value) => {
         return (
@@ -156,7 +156,7 @@ const BlogListing = ({ data }: Props) => {
         )
       })
     } else {
-      let newData = data.find((item) => item.category === selectedCategory)
+      const newData = data.find((item) => item.category === selectedCategory)
       return newData?.items.map((value) => {
         return (
           <div key={Math.random()}>

@@ -15,9 +15,7 @@ import CustomButton from '@/components/utilities/CustomButton'
 import { motion } from 'motion/react'
 import { useRouter } from 'next/navigation'
 
-type Props = {}
-
-const YourGateway = ({}: Props) => {
+const YourGateway = () => {
   const MotionImage = motion(Image)
   const router = useRouter()
   return (

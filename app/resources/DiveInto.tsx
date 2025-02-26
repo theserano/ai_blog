@@ -16,8 +16,6 @@ import image2 from '@/public/assets/spe.svg'
 import image3 from '@/public/assets/qc.svg'
 import { motion } from 'motion/react'
 
-type Props = {}
-
 const books = [
   {
     title: 'FutureTech Trends 2024',
@@ -39,7 +37,7 @@ const books = [
   },
 ]
 
-const DiveInto = ({}: Props) => {
+const DiveInto = () => {
   const MotionImage = motion(Image)
   const MotionCard = motion(Card)
   return (

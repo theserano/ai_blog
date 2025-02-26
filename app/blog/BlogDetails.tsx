@@ -103,7 +103,7 @@ const BlogDetails = () => {
                 individuals to take charge of their well-being. These devices
                 continuously collect physiological data, such as heart rate,
                 blood oxygen levels, and sleep patterns, providing real-time
-                insights into one's health.
+                insights into one&apos;s health.
               </CustomText>
             </motion.div>
 
