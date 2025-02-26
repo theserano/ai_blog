@@ -65,7 +65,7 @@ const WhatReaders = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{
-              delay: 0.5 + index * 0.2,
+              delay: 0.5 + index * 0.1,
               ease: [0.34, 1.56, 0.64, 1],
               duration: 1,
             }}

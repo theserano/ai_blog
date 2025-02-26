@@ -50,8 +50,8 @@ const HomeHero = () => {
               </motion.p>
             </CustomHeader>
             <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 delay: 0.7,
                 ease: [0.34, 1.56, 0.64, 1],
