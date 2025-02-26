@@ -10,23 +10,31 @@ import global from '@/public/assets/global-read.svg'
 import Image from 'next/image'
 import CustomHeader from '@/components/utilities/CustomHeader'
 import ArrowBtn from '@/components/utilities/ArrowBtn'
-import TypeEffect from '@/components/utilities/TypeEffect'
 import { motion } from 'motion/react'
 import { useRouter } from 'next/navigation'
-
+import { Typewriter } from 'react-simple-typewriter'
 
 const HomeHero = () => {
   const MotionImage = motion(Image)
-  const router = useRouter();
+  const router = useRouter()
   return (
     <section>
       <div className='grid grid_cols_2'>
         <div className='flex flex-col gap-[40px] lg:gap-[100px] pt-[40px] lg:pt-[150px] border-r-[1px]'>
           <article className='flex flex-col gap-4 pl-[20px] xl:pl-[80px] 2xl:pl-[162px] pr-[20px] lg:pr-[50px]'>
             <p className='text-[#666666] text-[16px] xl:text-[22px] 2xl:text-[30px] font-medium leading--[120%] mb-0 xl:mb-4 min-h-8'>
-              <TypeEffect
+              {/* <TypeEffect
                 text='Your Journey to Tomorrow Begins Here'
                 delay={8000}
+              /> */}
+              <Typewriter
+                words={['Your Journey to Tomorrow Begins Here']}
+                loop={0}
+                cursor
+                cursorStyle={`|`}
+                typeSpeed={50}
+                delaySpeed={8000}
+                deleteSpeed={50}
               />
             </p>
             <CustomHeader type='h1' className='overflow-x-hidden'>

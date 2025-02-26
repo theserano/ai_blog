@@ -4,7 +4,6 @@ import { Badge } from '../ui/badge'
 import CustomHeader from './CustomHeader'
 import { Button } from '../ui/button'
 import ArrowBtn from './ArrowBtn'
-import TypeEffect from './TypeEffect'
 import { motion } from 'motion/react'
 
 type Props = {
