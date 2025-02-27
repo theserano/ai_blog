@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: 'Future Tech',
   description: 'Explore the Frontiers of Artificial Intelligence',
   icons: {
-    icon: './logo.svg'
+    icon: './logo.svg',
   },
 }
 
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-[1920px] mx-auto`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-[1920px] mx-auto mt-[130px]`}
       >
         <CustomCursor />
         <Navbar />

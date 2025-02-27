@@ -35,7 +35,7 @@ const Navbar = () => {
   }
 
   return (
-    <section>
+    <section className='fixed top-0 w-full z-[5000] bg-[#0A0A0A]'>
       {/* Top Newsletter Bar */}
       <p className='flex items-center justify-center text-[12px] md:text-[14px] lg:text-[16px] text-[#98989A] px-[24px] py-[12px] h-12'>
         Subscribe to our Newsletter For New & latest Blogs and Resources
