@@ -50,7 +50,7 @@ export default function CustomCursor() {
     <>
       {/* Outer ring */}
       <motion.div
-        className='cursor-ring !hidden lg:!block'
+        className='cursor-ring !hidden lg:!block mt-[-130px]'
         style={{
           x: springX,
           y: springY,
@@ -66,7 +66,7 @@ export default function CustomCursor() {
 
       {/* Inner dot */}
       <motion.div
-        className='cursor-dot !hidden lg:!block'
+        className='cursor-dot !hidden lg:!block mt-[-130px]'
         style={{
           x: springX,
           y: springY,
